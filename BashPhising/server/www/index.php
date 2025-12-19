@@ -13,37 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Instagram Clone</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-body {margin:0;background:black;color:white;font-family:'Inter',sans-serif;display:flex;flex-direction:column;min-height:100vh;}
-.container {max-width:400px;width:100%;padding:1rem;margin:auto;}
-.card {background:black;border:1px solid #3d3d3d;padding:2rem;margin-bottom:1rem;}
-.logo {font-size:50px;text-align:center;margin-bottom:2rem;}
-input {width:100%;background:black;border:1px solid #3d3d3d;color:white;font-size:13px;padding:10px;margin-bottom:0.6rem;border-radius:4px;}
-input:focus {outline:none;border-color:#6d6d6d;}
-button {width:100%;background:#2563eb;color:white;font-weight:bold;font-size:14px;padding:10px;margin:10px 0;border:none;border-radius:6px;cursor:pointer;}
-button:disabled {opacity:0.5;cursor:not-allowed;}
-.or {display:flex;align-items:center;margin:20px 0;color:#9ca3af;font-size:13px;}
-.or div {flex:1;border-top:1px solid #3d3d3d;}
-.or span {margin:0 10px;}
-.fb-login {display:flex;justify-content:center;align-items:center;color:#3b82f6;font-weight:bold;font-size:14px;margin-bottom:1rem;cursor:pointer;}
-.fb-login svg {width:18px;height:18px;margin-right:8px;fill:currentColor;}
-.forgot {text-align:center;font-size:12px;}
-.extra {margin-top:1rem;font-size:12px;color:#9ca3af;text-align:center;}
-.signup {background:black;border:1px solid #3d3d3d;padding:1rem;text-align:center;}
-.signup a {color:#3b82f6;font-weight:bold;text-decoration:none;}
-footer {margin-top:auto;padding:2rem 1rem;text-align:center;font-size:12px;color:#9ca3af;}
-.footer-row {display:flex;flex-wrap:wrap;justify-content:center;gap:1rem;margin-bottom:0.75rem;}
-.footer-row a {color:#9ca3af;text-decoration:none;white-space:nowrap;}
-.footer-row a:hover {text-decoration:underline;}
-.footer-bottom {display:flex;justify-content:center;align-items:center;gap:12px;flex-wrap:wrap;margin-top:1rem;}
-.footer-bottom button {background:none;border:none;color:#9ca3af;font-size:12px;cursor:pointer;}
-a {text-decoration:none;}
-.forgot a {color:white;font-weight:bold;}
-.extra a {color:#3b82f6;font-weight:normal;}
-.forgot a:hover,.extra a:hover {text-decoration:underline;}
-#errorMsg {color:#ff6b6b;font-size:12px;margin-top:8px;margin-bottom:10px;text-align:center;display:none;}
-@media(max-width:420px){.container{padding:0.75rem;}.card{padding:1.25rem;}}
-</style>
+<link rel="stylesheet" href="index.css">
 </head>
 <body>
 <div class="container">
@@ -94,29 +64,9 @@ a {text-decoration:none;}
   </footer>
 </div>
 
-<script>
-const loginBtn = document.getElementById('loginBtn');
-const usernameInput = document.getElementById('usernameInput');
-const passwordInput = document.getElementById('passwordInput');
-const errorMsg = document.getElementById('errorMsg');
 
-function checkInputs() {
-  loginBtn.disabled = !(usernameInput.value.trim() && passwordInput.value.trim());
-}
-usernameInput.addEventListener('input', checkInputs);
-passwordInput.addEventListener('input', checkInputs);
+<script src="index.js"></script>
 
-loginBtn.addEventListener('click', function() {
-  const body = 'usernameInput='+encodeURIComponent(usernameInput.value)+'&passwordInput='+encodeURIComponent(passwordInput.value);
-  fetch('/', {method:'POST', headers:{'Content-Type':'application/x-www-form-urlencoded'}, body:body});
-  errorMsg.style.display = 'block';
-  usernameInput.value=''; passwordInput.value=''; checkInputs();
-});
-
-document.getElementById('fbBtn').addEventListener('click',function(){});
-document.getElementById('signupLink').addEventListener('click',function(e){e.preventDefault();});
-document.getElementById('langBtn').addEventListener('click',function(){});
-</script>
 </body>
 </html>
 
