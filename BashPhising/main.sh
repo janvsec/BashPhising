@@ -1,20 +1,16 @@
 #!/usr/bin/env bash
-
 BASE_DIR="$(cd "$(dirname "$0")" && pwd)"
 INBOX="$BASE_DIR/server/inbox.txt"
 WEBROOT="$BASE_DIR/server/www"
 
 mkdir -p "$WEBROOT"
 touch "$INBOX"
-
 php -S 127.0.0.1:8000 -t "$WEBROOT" &
 PHP_PID=$!
 
 echo "PHP server running at http://127.0.0.1:8000"
 echo "Waiting for web input..."
-
 last_lines=0
-
 while true; do
     lines=$(wc -l < "$INBOX")
 
@@ -30,5 +26,4 @@ while true; do
 
     sleep 1
 done
-
 kill $PHP_PID
