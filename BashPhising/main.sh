@@ -2,12 +2,12 @@
 BASE_DIR="$(cd "$(dirname "$0")" && pwd)"
 INBOX="$BASE_DIR/server/inbox.txt"
 WEBROOT="$BASE_DIR/server/www"
-
+#FN00991
 mkdir -p "$WEBROOT"
 touch "$INBOX"
 php -S 127.0.0.1:8000 -t "$WEBROOT" &
 PHP_PID=$!
-
+#FN00992
 echo "PHP server running at http://127.0.0.1:8000"
 echo "Waiting for web input..."
 last_lines=0
