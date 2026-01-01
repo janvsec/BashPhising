@@ -15,7 +15,7 @@ while true; do
     lines=$(wc -l < "$INBOX")
 
     if [ "$lines" -gt "$last_lines" ]; then
-        # Only print non-empty lines
+        # dont print empty lines
         tail -n $((lines - last_lines)) "$INBOX" | while read -r line; do
             if [[ -n "${line// }" ]]; then
                 echo "$line"
